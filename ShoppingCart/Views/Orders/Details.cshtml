@@ -1,0 +1,36 @@
+﻿@model ShoppingCart.Models.Orders
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+
+
+<div>
+    <h4>Order : @Html.DisplayFor(model => model.Id) | Total Price @Html.DisplayFor(model => model.OrderTotal) | At @Html.DisplayFor(model => model.Orderdate)</h4>
+    <hr />
+   
+</div>
+
+<table class="table table-hover">
+    <tr class="table-dark">
+        <th>Product Name </th>
+        <th>Quantity </th>
+        <th>Price </th>
+    </tr>
+    @foreach (var item in Model.OrderDetails)
+    {
+        <tr class="table">
+            <td>@item.ProductName</td>
+            <td>@item.Quantity</td>
+            <td>@item.Price</td>
+        </tr>
+
+    }
+
+</table>
+
+
+

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ShoppingCart.Models.Orders>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Report Orders</h1>
+<br />
+
+
+<table class="table table-hover">
+    <thead>
+        <tr class="table-dark">
+            <th>
+                code
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Orderdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderTotal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr class="table">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Orderdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderTotal)
+            </td>
+            <td>
+               
+                  
+                            <a class="btn btn-success"  asp-action="Details" asp-route-id="@item.Id">Details</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
